@@ -1,0 +1,48 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed project description"
+    },
+    "department": {
+      "type": "string",
+      "enum": [
+        "infrastructure",
+        "education",
+        "healthcare",
+        "water_sanitation",
+        "housing",
+        "transport",
+        "energy",
+        "agriculture",
+        "other"
+      ],
+      "description": "Government department"
+    },
+    "location": {
+      "type": "string",
+      "description": "Project location/ward"
+    },
+    "total_budget": {
+      "type": "number",
+      "description": "Total allocated budget in ZAR"
+    },
+    "spent_amount": {
+      "type": "number",
+      "description": "Total spent so far",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planning",
+        "in_progress",
+        "completed",
+        "on_hold",
+ 
