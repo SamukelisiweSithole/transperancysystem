@@ -1,0 +1,49 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Notification title"
+    },
+    "message": {
+      "type": "string",
+      "description": "Notification body"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "project_created",
+        "project_updated",
+        "budget_updated",
+        "progress_updated",
+        "project_completed",
+        "system"
+      ],
+      "description": "Notification type"
+    },
+    "project_id": {
+      "type": "string",
+      "description": "Related project ID"
+    },
+    "read": {
+      "type": "boolean",
+      "default": false
+    },
+    "target_role": {
+      "type": "string",
+      "enum": [
+        "all",
+        "admin",
+        "government",
+        "community"
+      ],
+      "default": "all"
+    }
+  },
+  "required": [
+    "title",
+    "message",
+    "type"
+  ]
+}
