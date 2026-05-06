@@ -1,0 +1,48 @@
+{
+  "name": "Resource",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Reference to Project"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name for display"
+    },
+    "name": {
+      "type": "string",
+      "description": "Resource name (cement, tools, etc.)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "building_materials",
+        "tools",
+        "equipment",
+        "vehicles",
+        "fuel",
+        "safety_gear",
+        "other"
+      ],
+      "description": "Resource category"
+    },
+    "quantity_allocated": {
+      "type": "number",
+      "description": "Total quantity allocated"
+    },
+    "quantity_used": {
+      "type": "number",
+      "description": "Quantity used so far",
+      "default": 0
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement (bags, litres, units, etc.)"
+    },
+    "unit_cost": {
+      "type": "number",
+      "description": "Cost per unit in ZAR"
+    }
+  },
+ 
