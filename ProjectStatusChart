@@ -1,0 +1,42 @@
+import React from "react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
+
+const STATUS_COLORS = {
+  planning: "hsl(205, 78%, 35%)",
+  in_progress: "hsl(38, 92%, 50%)",
+  completed: "hsl(168, 55%, 42%)",
+  on_hold: "hsl(0, 72%, 51%)",
+  cancelled: "hsl(215, 12%, 50%)",
+};
+
+const STATUS_LABELS = {
+  planning: "Planning",
+  in_progress: "In Progress",
+  completed: "Completed",
+  on_hold: "On Hold",
+  cancelled: "Cancelled",
+};
+
+export default function ProjectStatusChart({ projects }) {
+  const statusCounts = projects.reduce((acc, p) => {
+    acc[p.status] = (acc[p.status] || 0) + 1;
+    return acc;
+  }, {});
+
+  const data = Object.entries(statusCounts).map(([status, count]) => ({
+    name: STATUS_LABELS[status] || status,
+    value: count,
+    color: STATUS_COLORS[status] || "#999",
+  }));
+
+  if (data.length === 0) {
+    return (
+      <Card>
+        <CardHeader><CardTitle className="text-base">Project Status</CardTitle></CardHeader>
+        <CardContent className="flex items-center justify-center h-48 text-muted-foreground text-sm">
+          No projects yet
+        </CardContent>
+      </Card>
+    );
+ 
