@@ -1,0 +1,48 @@
+{
+  "name": "ProgressUpdate",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Reference to Project"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name for display"
+    },
+    "milestone": {
+      "type": "string",
+      "description": "Milestone title"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Update notes (delays, achievements)"
+    },
+    "percentage_at_update": {
+      "type": "number",
+      "description": "Progress % at time of update"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "on_track",
+        "delayed",
+        "ahead_of_schedule",
+        "blocked"
+      ],
+      "default": "on_track"
+    },
+    "photo_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Progress photo URLs"
+    }
+  },
+  "required": [
+    "project_id",
+    "milestone",
+    "percentage_at_update"
+  ]
+}
