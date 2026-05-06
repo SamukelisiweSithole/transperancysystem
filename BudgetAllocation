@@ -1,0 +1,62 @@
+{
+  "name": "BudgetAllocation",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Reference to Project"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name for display"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "materials",
+        "labour",
+        "equipment",
+        "consulting",
+        "permits",
+        "transport",
+        "contingency",
+        "other"
+      ],
+      "description": "Expenditure category"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount in ZAR"
+    },
+    "transaction_type": {
+      "type": "string",
+      "enum": [
+        "allocation",
+        "expenditure"
+      ],
+      "description": "Whether this is budget allocation or spending"
+    },
+    "description": {
+      "type": "string",
+      "description": "Details of the transaction"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "Uploaded receipt/proof document URL"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "approved_by": {
+      "type": "string",
+      "description": "Approver name"
+    }
+  },
+  "required": [
+    "project_id",
+    "category",
+    "amount",
+    "transaction_type"
+  ]
+}
